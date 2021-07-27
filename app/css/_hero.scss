@@ -1,0 +1,101 @@
+.hero {
+    background-color: $veryLightGray;
+
+    .container {
+        @include breakpoint-up(large){
+            display: flex;
+            align-items: center;
+            
+        }
+    }
+    
+    &__image {
+        position: relative;
+        background-image: url('/images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:center center;
+        min-height: 17.5rem;
+
+        @include breakpoint-up(large){
+            flex: 1;
+            order: 2;
+            height: 41rem;
+            background-image: none;
+            
+        }
+
+        &::after {
+            content: '';
+            //border: 1px solid red;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/image-mockups.png');
+            background-repeat: no-repeat;
+            background-size: 93%;
+            background-position: center bottom;
+            
+            @include breakpoint-up(large){
+                width: 150%;
+                height: 180%;
+                background-size: 90%;
+                background-position: 80% -47%;
+                
+            }
+           
+        }
+        &::before{
+            content: '';
+            //border: 1px solid red;
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background-image: url(/images/bg-intro-desktop.svg);
+            background-repeat: no-repeat;
+            background-size: 107%;
+            background-position: 74% 77%;
+
+            @include breakpoint-down(medium){
+                background-image: none;
+            }
+        }
+
+   
+
+        
+    }
+    &__text {
+        text-align: center;  
+        
+        h1 {
+            font-weight: 300;
+            line-height: 1;
+            font-size: 2.25rem;
+            margin-bottom: 1.375rem;
+            @include breakpoint-up(large){
+                font-size: 3.625rem;
+                margin-bottom: 1.875rem;
+                
+            }
+        }
+
+        p{
+            font-weight: 300;
+            line-height: 1.5;
+            padding-bottom: 2.25rem;   
+        }
+
+        a {
+            display: inline-block;
+            margin-bottom: 3.25rem;
+        }
+
+        @include breakpoint-up(large){
+            flex: 1;
+            order: 1;
+            text-align: left;
+            
+        }
+    }
+}
